@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require './app/models/book.rb'
+require 'yaml'
+
+
+books = YAML.load_file('lib/assets/books.yaml')
+
+Book.destroy_all
+
+books.each do |book|
+  Book.create!({
+    title: book[:title],
+    pages: book[:pages],
+    publication_year: book[:publication_year]
+  })
+end
+
+p "Created #{Book.count} books"
