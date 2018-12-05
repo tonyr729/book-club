@@ -12,8 +12,13 @@ describe 'As a Visitor' do
       expect(page).to have_content("All Books")
       expect(page).to have_content(book_1.title)
       expect(page).to have_content("Pages: #{book_1.pages}")
+      expect(page).to have_content("Publication: #{book_1.publication_year}")
       expect(page).to have_content(book_2.title)
       expect(page).to have_content("Pages: #{book_2.pages}")
+      expect(page).to have_content("Publication: #{book_2.publication_year}")
+      expect(page).to have_content(book_3.title)
+      expect(page).to have_content("Pages: #{book_3.pages}")
+      expect(page).to have_content("Publication: #{book_3.publication_year}")
     end
   end
 end
