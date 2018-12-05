@@ -102,7 +102,7 @@ books = [{
     "author": "Paul Celan",
     "link": "\n",
     "pages": 320,
-    "title": "Poems",
+    "title": "Poems by Paul Celan",
     "publication_year": 1952
   },
   {
@@ -130,7 +130,7 @@ books = [{
     "author": "Anton Chekhov",
     "link": "https://en.wikipedia.org/wiki/List_of_short_stories_by_Anton_Chekhov\n",
     "pages": 194,
-    "title": "Stories",
+    "title": "Stories by Anton Chekhov",
     "publication_year": 1886
   },
   {
@@ -312,7 +312,7 @@ books = [{
     "author": "Franz Kafka",
     "link": "https://en.wikipedia.org/wiki/Franz_Kafka_bibliography#Short_stories\n",
     "pages": 488,
-    "title": "Stories",
+    "title": "Stories by Franz Kafka",
     "publication_year": 1924
   },
   {
@@ -368,7 +368,7 @@ books = [{
     "author": "Giacomo Leopardi",
     "link": "\n",
     "pages": 184,
-    "title": "Poems",
+    "title": "Poems by Giacomo Leopardi",
     "publication_year": 1818
   },
   {
