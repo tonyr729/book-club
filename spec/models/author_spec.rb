@@ -6,4 +6,9 @@ describe Author, type: :model do
     it {should validate_uniqueness_of(:name)}
   end
 
+  describe "relationships" do
+    it {should have_many(:book_authors)}
+    it {should have_many(:books).through(:book_authors)}
+  end
+
 end
