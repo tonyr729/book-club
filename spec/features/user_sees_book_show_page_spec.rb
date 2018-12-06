@@ -4,6 +4,7 @@ describe 'As a Visitor' do
   describe 'when I visit a book show page' do
     it 'displays a book' do
       book_1 = Book.create(title: "Fire and Ice", pages: 400, publication_year: 2016)
+      book_2 = Book.create(title: "Dragon Zombies", pages: 500, publication_year: 2019)
       author_1 = book_1.authors.create(name: "George Martin")
       author_2 = book_1.authors.create(name: "HBO")
       user_1 = User.create(name: "Hamburglar")
@@ -25,6 +26,7 @@ describe 'As a Visitor' do
         expect(page).to have_content("Rating: #{review.rating}")
         expect(page).to have_content("by: #{review.user.name}")
       end
+      expect(page).to_not have_content(book_2.title)
     end
   end
 end
