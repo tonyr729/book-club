@@ -22,7 +22,8 @@ describe 'As a Visitor' do
       book_1.reviews.each do |review|
         expect(page).to have_content("Review: #{review.title}")
         expect(page).to have_content(review.description)
-        expect(page).to have_content(review.rating)
+        expect(page).to have_content("Rating: #{review.rating}")
+        expect(page).to have_content("by: #{review.user.name}")
       end
     end
   end
