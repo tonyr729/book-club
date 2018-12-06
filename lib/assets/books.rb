@@ -1,6 +1,7 @@
 require 'yaml'
 
-books = [{
+books = [
+  {
     "author": [{"author": "Michael Crichton"}, {"author": "Richard Preston"}],
     "link": "https://en.wikipedia.org/wiki/Micro_(novel)\n",
     "pages": 560,
@@ -8,11 +9,11 @@ books = [{
     "publication_year": 212
   },
   {
-      "author": [{"author": "Douglas Preston"}, {"author": "Lincoln Child"}],
-      "link": "https://en.wikipedia.org/wiki/Riptide_(novel)\n",
-      "pages": 496,
-      "title": "Riptide",
-      "publication_year": 1999
+    "author": [{"author": "Douglas Preston"}, {"author": "Lincoln Child"}],
+    "link": "https://en.wikipedia.org/wiki/Riptide_(novel)\n",
+    "pages": 496,
+    "title": "Riptide",
+    "publication_year": 1999
     },
   {
     "author": "Chinua Achebe",

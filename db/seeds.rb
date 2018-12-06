@@ -12,8 +12,13 @@ books.each do |book|
     pages: book[:pages],
     publication_year: book[:publication_year]
   })
-
-  # new_book.author.find_or_create_by(book[:author])
+  if book[:author].class == Array
+    book[:author].each do |a|
+      new_book.authors.find_or_create_by({ name: a[:author] })
+    end
+  else
+    new_book.authors.find_or_create_by({ name: book[:author] })
+  end
 end
 
 p "Created #{Book.count} books"
