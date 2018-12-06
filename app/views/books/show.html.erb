@@ -1,0 +1,11 @@
+  <h2><%= @book.title %></h2>
+  <p>Pages: <%= @book.pages %></p>
+  <p>Publication: <%= @book.publication_year %></p>
+  <% @book.authors.each do |author| %>
+    <p>Author: <%= author.name %></p>
+  <% end %>
+  <% @book.reviews.each do |review| %>
+    <p>Review: <%= review.title %></p>
+    <p><%= review.description %></p>
+    <p><%= review.rating %></p>
+  <% end %>
