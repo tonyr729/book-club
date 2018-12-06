@@ -8,4 +8,15 @@ describe Book, type: :model do
     it {should validate_uniqueness_of(:title)}
   end
 
+  describe "relationships" do
+    describe 'to author' do
+      it {should have_many(:book_authors)}
+      it {should have_many(:authors).through(:book_authors)}
+    end
+
+    describe "to user reviews" do
+      it {should have_many(:reviews)}
+      it {should have_many(:users).through(:reviews)}
+    end
+  end
 end
