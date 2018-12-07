@@ -17,7 +17,11 @@ class BooksController < ApplicationController
     final_params = Author.sanitize_authors_input(book_params)
     @book = Book.new(final_params)
     @book.save
-    redirect_to book_path(@book)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render :new
+    end
   end
 
   private
