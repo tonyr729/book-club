@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+    @reviews = Review.all
   end
 
   def show
@@ -11,6 +12,12 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+
+    redirect_to books_path
+  end
 
   def create
     book_params[:title] = book_params[:title].downcase.titlecase
@@ -23,6 +30,7 @@ class BooksController < ApplicationController
       render :new
     end
   end
+
 
   private
 

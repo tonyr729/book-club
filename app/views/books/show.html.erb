@@ -10,3 +10,4 @@
     <p>Rating: <%= review.rating %></p>
     <p>by: <%= review.user.name %></p>
   <% end %>
+  <%= link_to "Delete Book", book_path(@book), method: :delete %>
