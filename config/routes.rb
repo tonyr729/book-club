@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'books#index'
   get '/books', to: 'books#index'
 
-	resources :books, only: [:index, :show, :destroy]
+	resources :books, only: [:index, :show, :new, :create, :destroy]
 end
