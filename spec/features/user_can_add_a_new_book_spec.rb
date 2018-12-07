@@ -27,7 +27,7 @@ describe 'As a visitor' do
     end
 
 
-    xit 'redirects to new book form if duplicate title' do
+    it 'redirects to new book form if duplicate title' do
       book_1 = Book.create(title: "Fire and Ice", pages: 400, publication_year: 2016)
       author_1 = book_1.authors.create(name: "George Martin")
 
@@ -45,7 +45,9 @@ describe 'As a visitor' do
 
       click_button 'Create Book'
 
-      expect(current_path).to eq(new_book_path)
+      error = "Title has already been taken"
+
+      expect(page).to have_content(error)
     end
   end
 end
