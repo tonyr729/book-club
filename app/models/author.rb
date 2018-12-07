@@ -10,7 +10,7 @@ class Author < ApplicationRecord
     author_list = params[:authors].split(', ')
     sanitized_authors = author_list.map do |author|
       clean_author = author.downcase.titlecase
-      Author.create(name: clean_author)
+      Author.find_or_create_by(name: clean_author)
     end
     params[:authors] = sanitized_authors
     params
