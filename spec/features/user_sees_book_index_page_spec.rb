@@ -8,7 +8,7 @@ describe 'As a Visitor' do
       book_3 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
 
       visit books_path
-  
+
       expect(page).to have_content("All Books")
       expect(page).to have_content(book_1.title)
       expect(page).to have_content("Pages: #{book_1.pages}")
@@ -21,4 +21,5 @@ describe 'As a Visitor' do
       expect(page).to have_content("Publication: #{book_3.publication_year}")
     end
   end
+
 end
