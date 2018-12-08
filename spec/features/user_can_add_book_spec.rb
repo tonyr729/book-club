@@ -13,8 +13,6 @@ describe 'As a visitor' do
       book_publication_year = 1079
       book_authors = "ROnAlD mcDOnaLd, COLOnel sANDers"
 
-      visit new_book_path
-
       fill_in :book_title, with: book_title
       fill_in :book_pages, with: book_pages
       fill_in :book_publication_year, with: book_publication_year
@@ -22,7 +20,7 @@ describe 'As a visitor' do
 
       click_button 'Create Book'
 
-      expect(current_path).to eq("/books/#{Book.last.id}")
+      expect(current_path).to eq(book_path(Book.last.id))
       expect(page).to have_content(book_title)
     end
 

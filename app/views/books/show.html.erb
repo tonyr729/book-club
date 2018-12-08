@@ -11,3 +11,4 @@
     <p>by: <%= review.user.name %></p>
   <% end %>
   <%= link_to "Delete Book", book_path(@book), method: :delete %>
+  <%= link_to "Create a New Review", new_book_review_path(@book) %>
