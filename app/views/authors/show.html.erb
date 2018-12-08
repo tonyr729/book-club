@@ -3,4 +3,12 @@
   <p>Title: <%= book.title %></p>
   <p>Pages: <%= book.pages %></p>
   <p>Publication: <%= book.publication_year %></p>
+  <% if book.co_authors(@author).any? %>
+    <p>
+      Co-Authors: 
+      <% book.co_authors(@author).each do |author| %>
+        <%= author.name %></p>
+      <% end %>
+    </p>
+  <% end %>
 <% end %>
