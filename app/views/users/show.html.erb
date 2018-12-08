@@ -1,0 +1,6 @@
+<%= @user.name %>
+<% @user.reviews.each do |review| %>
+  <p>Title: <%= review.title %></p>
+  <p>Description: <%= review.description %></p>
+  <p>Rating: <%= review.rating %></p>
+<% end %>
