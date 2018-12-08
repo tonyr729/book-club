@@ -11,12 +11,12 @@ describe 'As a visitor' do
 
       review_title = "Book is fire"
       review_description = "Dragons are lit"
-      review_rating = 5
       review_user = "Puff"
+      review_rating = 'Great'
 
       fill_in :review_title, with: review_title
       fill_in :review_description, with: review_description
-      fill_in :review_rating, with: review_rating
+      select review_rating
       fill_in :review_user, with: review_user
 
       click_button "Create Review"
