@@ -7,4 +7,8 @@ class Book < ApplicationRecord
 
   has_many :reviews, :dependent => :destroy
   has_many :users, through: :reviews
+
+  def co_authors(main_author)
+    authors.where.not(id: main_author.id)
+  end
 end
