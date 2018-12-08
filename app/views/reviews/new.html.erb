@@ -9,7 +9,7 @@
   </p>
   <p>
     <%= f.label :rating %>
-    <%= f.text_area :rating %>
+    <%= f.select :rating, [['1: Horrible', 1], ['2: Pretty bad', 2], ['3: Average', 3], ['4: Good', 4], ['5: Great', 5]] %>
   </p>
   <p>
     <%= f.label :user %>
