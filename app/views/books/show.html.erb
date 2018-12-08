@@ -8,7 +8,8 @@
     <p>Review: <%= review.title %></p>
     <p><%= review.description %></p>
     <p>Rating: <%= review.rating %></p>
-    <p>by: <%= review.user.name %></p>
+    <p>by: <%=link_to review.user.name, user_path(review.user) %></p>
   <% end %>
   <%= link_to "Delete Book", book_path(@book), method: :delete %>
   <%= link_to "Create a New Review", new_book_review_path(@book) %>
+!
