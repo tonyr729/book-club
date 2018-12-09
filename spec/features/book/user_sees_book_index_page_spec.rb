@@ -21,6 +21,17 @@ describe 'As a Visitor' do
       expect(page).to have_content("Publication: #{book_3.publication_year}")
     end
 
+    it 'shows book titles as links to the book show page' do
+      book_1 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
+
+      visit books_path
+      
+      click_link book_1.title
+
+      expect(current_path).to eq(book_path(book_1))
+      expect(page).to have_content(book_1.title)
+    end
+
     it 'shows authors as links to the authors show page' do
       book_1 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
       book_2 = Book.create(title: "Dragon Zombies", pages: 500, publication_year: 2019)
