@@ -1,17 +1,26 @@
-<h1>All Books</h1>
+<section>
+  <h1>All Books</h1>
 
-
-<% @books.each do |book| %>
-  <h2><%= link_to  book.title, book_path(book) %></h2>
-  <p>
-    Author(s):
-    <% book.authors.each do |author| %>
-      <%= link_to  author.name, author_path(author) %>
-    <% end %>
+  <p> Sort by:
+  <%=link_to 'Most Number of Pages', books_path(:sort_param => "pages", :sort_dir => "DESC") %>
+  <%=link_to 'Least Number of Pages', books_path(:sort_param => "pages", :sort_dir => "ASC") %>
+  <%=link_to 'Most Reviews', books_path(:sort_param => "", :sort_dir => "DESC") %>
+  <%=link_to 'Least Reviews', books_path(:sort_param => "pages", :sort_dir => "ASC") %>
   </p>
-  <p>Pages: <%= book.pages %></p>
-  <p>Publication: <%= book.publication_year %></p>
-  <p>Average Rating: <%= book.average_rating %></p>
-<% end %>
+  <% @books.each do |book| %>
+  <article class="book_container">
+    <h2><%= link_to  book.title, book_path(book) %></h2>
+    <p>
+      Author(s):
+      <% book.authors.each do |author| %>
+        <%= link_to  author.name, author_path(author) %>
+      <% end %>
+    </p>
+    <p>Pages: <%= book.pages %></p>
+    <p>Publication: <%= book.publication_year %></p>
+    <p>Average Rating: <%= book.average_rating %></p>
+  </article>
+  <% end %>
 
-<%= link_to "Create a New Book", new_book_path %>
+  <%= link_to "Create a New Book", new_book_path %>
+</section>
