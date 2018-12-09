@@ -30,5 +30,24 @@ describe Book, type: :model do
 
       expect([author_2]).to eq(co_author)
     end
+
   end
+
+  describe 'class methods' do
+    it 'calculates average rating' do
+      book_1 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
+      user_1 = User.create(name: "Hamburglar")
+      user_2 = User.create(name: "Michael")
+      user_3 = User.create(name: "Ricardo")
+      user_4 = User.create(name: "Lance")
+      review_1 = user_1.reviews.create(title: "Terrible book!", description: "Bitters retro mustache aesthetic biodiesel 8-bit.", rating: 1, book: book_1)
+      review_2 = user_2.reviews.create(title: "Thrilling book", description: "Park iphone leggings put a bird on it.", rating: 5, book: book_1)
+      review_3 = user_3.reviews.create(title: "Amazing book!", description: "I love this book so much. It's the best thing I've ever read!!!!!!.", rating: 2, book: book_1)
+      review_4 = user_4.reviews.create(title: "It was a book?", description: "Eh, it was ok.", rating: 3, book: book_1)
+
+      expect(book_1.average_rating).to eq(2.75)
+    end
+
+  end
+
 end
