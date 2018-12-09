@@ -25,7 +25,7 @@ describe 'As a Visitor' do
       book_1 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
 
       visit books_path
-      
+
       click_link book_1.title
 
       expect(current_path).to eq(book_path(book_1))
@@ -39,11 +39,27 @@ describe 'As a Visitor' do
       author_2 = Author.create(name: "George Lucus", books: [book_1, book_2])
 
       visit books_path
-      
+
       click_link author_1.name
 
       expect(current_path).to eq(author_path(author_1))
       expect(page).to have_content(author_1.name)
+    end
+
+    it 'shows average rating for each book' do
+      book_1 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
+      user_1 = User.create(name: "Hamburglar")
+      user_2 = User.create(name: "Michael")
+      user_3 = User.create(name: "Ricardo")
+      user_4 = User.create(name: "Lance")
+      review_1 = user_1.reviews.create(title: "Terrible book!", description: "Bitters retro mustache aesthetic biodiesel 8-bit.", rating: 1, book: book_1)
+      review_2 = user_2.reviews.create(title: "Thrilling book", description: "Park iphone leggings put a bird on it.", rating: 5, book: book_1)
+      review_3 = user_3.reviews.create(title: "Amazing book!", description: "I love this book so much. It's the best thing I've ever read!!!!!!.", rating: 2, book: book_1)
+      review_4 = user_4.reviews.create(title: "It was a book?", description: "Eh, it was ok.", rating: 3, book: book_1)
+
+      visit books_path
+      
+      expect(page).to have_content(book_1.average_rating)
     end
   end
 end
