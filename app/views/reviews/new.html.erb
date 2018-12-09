@@ -14,15 +14,6 @@
   <p>
     <%= f.label :user %>
     <%= f.text_area :user %>
-    <% if @book_user && @book_user.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @book_user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
   </p>
   <p>
     <%= f.submit %>
