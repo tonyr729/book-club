@@ -5,10 +5,11 @@
   <p>Publication: <%= book.publication_year %></p>
   <% if book.co_authors(@author).any? %>
     <p>
-      Co-Authors: 
+      Co-Authors:
       <% book.co_authors(@author).each do |author| %>
         <%= author.name %></p>
       <% end %>
     </p>
   <% end %>
 <% end %>
+<%= link_to "Delete Author", author_path(@author), method: :delete %>
