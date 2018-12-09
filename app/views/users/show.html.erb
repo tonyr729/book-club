@@ -1,6 +1,9 @@
 <%= @user.name %>
 <% @user.reviews.each do |review| %>
-  <p>Title: <%= review.title %></p>
-  <p>Description: <%= review.description %></p>
-  <p>Rating: <%= review.rating %></p>
+  <div id="review_<%= review.id %>">
+    <p>Title: <%= review.title %></p>
+    <p>Description: <%= review.description %></p>
+    <p>Rating: <%= review.rating %></p>
+    <%= link_to  "Delete Review", review_path(review), method: :delete %>
+  </div>
 <% end %>
