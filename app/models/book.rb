@@ -11,4 +11,8 @@ class Book < ApplicationRecord
   def co_authors(main_author)
     authors.where.not(id: main_author.id)
   end
+
+  def average_rating
+    reviews.average(:rating)
+  end
 end
