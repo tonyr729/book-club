@@ -45,17 +45,23 @@ describe 'As a Visitor' do
       review_8 = user_1.reviews.create(title: "Horrible", description: "This book was not informative. I would like a refund.", rating: 1, book: book_1)
 
       visit book_path(book_1)
-      save_and_open_page
       within '#top-three' do
         expect(page).to have_content(review_1.title)
         expect(page).to have_content(review_2.title)
         expect(page).to have_content(review_3.title)
       end
+
       within '#bottom-three' do
         expect(page).to have_content(review_6.title)
         expect(page).to have_content(review_7.title)
         expect(page).to have_content(review_8.title)
       end
+
+      within '#average-rating' do
+        expect(page).to have_content(book_1.average_rating)
+      end
+
+
     end
   end
 end
