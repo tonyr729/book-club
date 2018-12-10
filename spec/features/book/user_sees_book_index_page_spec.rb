@@ -178,18 +178,21 @@ describe 'As a Visitor' do
         expect(page).to have_content(book_1.title)
         expect(page).to have_content(book_2.title)
         expect(page).to have_content(book_4.title)
+        expect(page).to_not have_content(book_3.title)
       end
-
+      
       within '#bottom-three' do
         expect(page).to have_content(book_3.title)
         expect(page).to have_content(book_4.title)
         expect(page).to have_content(book_2.title)
+        expect(page).to_not have_content(book_1.title)
       end
-
+      
       within '#top-users' do
         expect(page).to have_content(user_1.name)
         expect(page).to have_content(user_2.name)
         expect(page).to have_content(user_3.name)
+        expect(page).to_not have_content(user_4.name)
       end
     end
   end
