@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     end
     @top_three = Book.all_rating_sort("desc")
     @bottom_three = Book.all_rating_sort("asc")
-    @top_users = User.top_users
+    @top_users = User.top_users.limit(3)
   end
 
   def show
