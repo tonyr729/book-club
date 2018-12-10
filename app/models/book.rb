@@ -15,4 +15,21 @@ class Book < ApplicationRecord
   def average_rating
     reviews.average(:rating)
   end
+
+  def self.order_by_reviews_count(sort_dir)
+    select('books.*, count(reviews.id) AS review_count')
+      .joins(:reviews)
+      .group(:id)
+      .order("review_count #{sort_dir}")
+  end
+
+  def self.order_by_ratings(sort_dir)
+    select('books.*, avg(rating) AS avg_rating')
+      .joins(:reviews)
+      .group(:id)
+      .order("avg_rating #{sort_dir}")
+  end
+
+
+
 end
