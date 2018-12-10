@@ -30,6 +30,11 @@ class Book < ApplicationRecord
       .order("avg_rating #{sort_dir}")
   end
 
+  def rating_sort(sort_dir)
+    reviews.order("rating #{sort_dir}").limit(3)
+  end
+
+
 
 
 end
