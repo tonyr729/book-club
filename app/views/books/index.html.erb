@@ -11,16 +11,19 @@
   </p>
   <section>
     <article id="top-three">
+    <h2>Top Books:</h2>
       <% @top_three.each do |book| %>
         <p><%= book.title %></p>
       <% end %>
     </article>
     <article id="bottom-three">
+    <h2>Bottom Books:</h2>
       <% @bottom_three.each do |book| %>
         <p><%= book.title %></p>
       <% end %>
     </article>
     <article id="top-users">
+    <h2>Top Users:</h2>
       <% @top_users.each do |user| %>
         <p><%= user.name %></p>
       <% end %>
