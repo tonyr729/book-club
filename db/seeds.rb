@@ -1,5 +1,6 @@
 require './app/models/book.rb'
 require 'yaml'
+require 'faker'
 
 
 books = YAML.load_file('lib/assets/books.yaml')
@@ -23,3 +24,18 @@ end
 
 p "Created #{Book.count} books"
 p "Created #{Author.count} authors"
+
+x = 0
+while x <= 200
+  
+  user = User.create(name: Faker::Name.name)
+  review_1 = user.reviews.create(title: Faker::Hipster.sentence(3), description: Faker::Hipster.paragraph, rating: (1 + rand(5)), book: Book.find((1 + rand(93))))
+  review_2 = user.reviews.create(title: Faker::Hipster.sentence(3), description: Faker::Hipster.paragraph, rating: (1 + rand(5)), book: Book.find((1 + rand(93))))
+  review_3 = user.reviews.create(title: Faker::Hipster.sentence(3), description: Faker::Hipster.paragraph, rating: (1 + rand(5)), book: Book.find((1 + rand(93))))
+
+
+  x = x + 1
+end
+
+p "Created #{User.count} users"
+p "Created #{Review.count} reviews"
