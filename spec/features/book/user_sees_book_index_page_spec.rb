@@ -122,6 +122,38 @@ describe 'As a Visitor' do
         expect(page).to have_content(book_3.title)
       end
     end
+
+    it 'sorts books by rating' do
+      book_1 = Book.create(title: "Oh no, ice zombies", pages: 600, publication_year: 2018)
+      book_2 = Book.create(title: "Dragons and Zombies, oh my!", pages: 800, publication_year: 2018)
+      book_3 = Book.create(title: "A Guide on How do Ice Skate with Dragons and Zombies", pages: 1000, publication_year: 2019)
+
+      user_1 = User.create(name: "Hamburglar")
+      user_2 = User.create(name: "Michael")
+      user_3 = User.create(name: "Ricardo")
+      user_4 = User.create(name: "Lance")
+      review_1 = user_1.reviews.create(title: "Terrible book!", description: "Bitters retro mustache aesthetic biodiesel 8-bit.", rating: 1, book: book_1)
+      review_2 = user_2.reviews.create(title: "Thrilling book", description: "Park iphone leggings put a bird on it.", rating: 5, book: book_1)
+      review_3 = user_3.reviews.create(title: "Amazing book!", description: "I love this book so much. It's the best thing I've ever read!!!!!!.", rating: 2, book: book_1)
+      review_4 = user_2.reviews.create(title: "It was a book?", description: "Eh, it was ok.", rating: 3, book: book_2)
+      review_5 = user_3.reviews.create(title: "My Favorite Book", description: "SO GOOD, EVERYONE READ THIS BOOK!", rating: 4, book: book_2)
+      review_6 = user_4.reviews.create(title: "I should probably read it again", description: "Didn't really follow what was going on.", rating: 5, book: book_2)
+      review_7 = user_1.reviews.create(title: "Scary Book", description: "0 Stars, too scary.", rating: 1, book: book_3)
+      review_8 = user_1.reviews.create(title: "Scary Book", description: "0 Stars, too scary.", rating: 1, book: book_1)
+
+      visit books_path
+      click_link "Highest Rating"
+      save_and_open_page
+      within "article.book_container:nth-child(3)" do
+        expect(page).to have_content(book_2.title)
+      end
+
+      visit books_path
+      click_link "Lowest Rating"
+      within "article.book_container:nth-child(3)" do
+        expect(page).to have_content(book_3.title)
+      end
+    end
   end
 
 end
