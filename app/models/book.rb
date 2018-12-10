@@ -17,7 +17,7 @@ class Book < ApplicationRecord
   end
 
   def self.order_by_reviews_count(sort_dir)
-    select('books.*, coalesc(count(reviews.id), 0) AS review_count')
+    select('books.*, coalesce(count(reviews.id), 0) AS review_count')
       .joins(:reviews)
       .group(:id)
       .order("review_count #{sort_dir}")
