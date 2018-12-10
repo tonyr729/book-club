@@ -6,6 +6,8 @@
   <%=link_to 'Least Number of Pages', books_path(:pages_param => "pages", :sort_dir => "ASC") %>
   <%=link_to 'Most Reviews', books_path(:review_param => "reviews", :sort_dir => "DESC") %>
   <%=link_to 'Least Reviews', books_path(:review_param => "reviews", :sort_dir => "ASC") %>
+  <%=link_to 'Highest Rating', books_path(:ratings_param => "ratings", :sort_dir => "DESC") %>
+  <%=link_to 'Lowest Rating', books_path(:ratings_param => "ratings", :sort_dir => "ASC") %>
   </p>
   <% @books.each do |book| %>
   <article class="book_container">

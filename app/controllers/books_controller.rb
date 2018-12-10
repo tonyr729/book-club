@@ -4,6 +4,8 @@ class BooksController < ApplicationController
       @books = Book.order("#{params[:pages_param]} #{params[:sort_dir]}")
     elsif params[:review_param]
       @books = Book.order_by_reviews_count(params[:sort_dir])
+    elsif params[:ratings_param]
+      @books = Book.order_by_ratings(params[:sort_dir])
     else
       @books = Book.all
     end
