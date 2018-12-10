@@ -1,7 +1,9 @@
 <%= @user.name %>
-<% @user.reviews.each do |review| %>
+<%=link_to 'Newest', user_path(@user, :sort_dir => "DESC") %>
+<%=link_to 'Oldest', user_path(@user, :sort_dir => "ASC") %>
+<% @reviews.each_with_index do |review, index| %>
   <div id="review_<%= review.id %>">
-    <p>Title: <%= review.title %></p>
+    <p id="review_title_<%= index %>">Title: <%= review.title %></p>
     <p>Description: <%= review.description %></p>
     <p>Rating: <%= review.rating %></p>
     <%= link_to  "Delete Review", review_path(review), method: :delete %>
