@@ -1,15 +1,25 @@
 <h1><%= @author.name%></h1>
-<% @author.books.each do |book| %>
-  <p>Title: <%= book.title %></p>
-  <p>Pages: <%= book.pages %></p>
-  <p>Publication: <%= book.publication_year %></p>
-  <% if book.co_authors(@author).any? %>
-    <p>
-      Co-Authors:
-      <% book.co_authors(@author).each do |author| %>
-        <%= author.name %></p>
-      <% end %>
-    </p>
-  <% end %>
+<% @author.books.each_with_index do |book, index| %>
+  <article id="book-<%= index %>">
+    <p>Title: <%= book.title %></p>
+    <p>Pages: <%= book.pages %></p>
+    <p>Publication: <%= book.publication_year %></p>
+    <% if book.co_authors(@author).any? %>
+      <p>
+        Co-Authors:
+        <% book.co_authors(@author).each do |author| %>
+          <%= author.name %></p>
+        <% end %>
+      </p>
+    <% end %>
+    <% if book.reviews.any? %>
+      <div>
+        <h2>Top Review: </h2>
+        <p>Title: <%= book.rating_sort("DESC").first.title %></p>
+        <p>Rating: <%= book.rating_sort("DESC").first.rating %></p>
+        <p>User: <%= book.rating_sort("DESC").first.user.name %></p>
+      </div>
+    <% end %>
+  </article>
 <% end %>
 <%= link_to "Delete Author", author_path(@author), method: :delete %>
