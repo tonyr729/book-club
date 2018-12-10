@@ -143,7 +143,6 @@ describe 'As a Visitor' do
 
       visit books_path
       click_link "Highest Rating"
-      save_and_open_page
       within "article.book_container:nth-child(3)" do
         expect(page).to have_content(book_2.title)
       end
