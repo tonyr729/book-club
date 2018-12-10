@@ -10,5 +10,11 @@ class User < ApplicationRecord
       .joins(:reviews)
       .group(:id)
       .order("review_count DESC")
-  end
+ end
+
+ def sort_reviews_by_date(sort_dir)
+   reviews.order("created_at #{sort_dir}")
+ end
+
+
 end
