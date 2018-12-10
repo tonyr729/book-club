@@ -34,4 +34,19 @@ describe User, type: :model do
     end
   end
 
+  describe 'instance methods' do
+    it 'sorts reviews by date' do
+      book_1 = Book.create(title: "Fire and Ice", pages: 400, publication_year: 2016)
+      book_2 = Book.create(title: "Dragon Zombies", pages: 500, publication_year: 2019)
+      book_3 = Book.create(title: "Zombie Dragon love story", pages: 500, publication_year: 2019)
+      user_1 = User.create(name: "Hamburglar")
+      review_1 = user_1.reviews.create(title: "Terrible book!", description: "Bitters retro mustache aesthetic biodiesel 8-bit.", rating: 1, book: book_1, created_at: 1.day.ago)
+      review_2 = user_1.reviews.create(title: "Amazing book!", description: "Park iphone leggings put a bird on it.", rating: 5, book: book_2)
+      review_3 = user_1.reviews.create(title: "It was a book!", description: "I want my money back", rating: 2, book: book_3, created_at: 1.day.from_now)
+
+      expected = [review_1, review_2, review_3]
+
+      expect(user_1.sort_reviews_by_date("ASC")).to eq(expected)
+    end
+  end
 end
