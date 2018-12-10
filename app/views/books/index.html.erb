@@ -9,8 +9,25 @@
   <%=link_to 'Highest Rating', books_path(:ratings_param => "ratings", :sort_dir => "DESC") %>
   <%=link_to 'Lowest Rating', books_path(:ratings_param => "ratings", :sort_dir => "ASC") %>
   </p>
-  <% @books.each do |book| %>
-  <article class="book_container">
+  <section>
+    <article id="top-three">
+      <% @top_three.each do |book| %>
+        <p><%= book.title %></p>
+      <% end %>
+    </article>
+    <article id="bottom-three">
+      <% @bottom_three.each do |book| %>
+        <p><%= book.title %></p>
+      <% end %>
+    </article>
+    <article id="top-users">
+      <% @top_users.each do |user| %>
+        <p><%= user.name %></p>
+      <% end %>
+    </article>
+  </section>
+  <% @books.each_with_index do |book, index| %>
+  <article class="book_container-<%= index %>">
     <h2><%= link_to  book.title, book_path(book) %></h2>
     <p>
       Author(s):
