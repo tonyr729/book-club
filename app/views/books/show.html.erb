@@ -20,6 +20,11 @@
       <%= review.user.name %>
     <% end %>
   </article>
+  <article id="average-rating">
+    <p> Average Rating: </p>
+    <%= @book.average_rating %>
+  </article>
+
   <% @book.reviews.each do |review| %>
     <p>Review: <%= review.title %></p>
     <p><%= review.description %></p>
