@@ -1,11 +1,30 @@
-<%= @user.name %>
-<%=link_to 'Newest', user_path(@user, :sort_dir => "DESC") %>
-<%=link_to 'Oldest', user_path(@user, :sort_dir => "ASC") %>
-<% @reviews.each_with_index do |review, index| %>
-  <div id="review_<%= review.id %>">
-    <p id="review_title_<%= index %>">Title: <%= review.title %></p>
-    <p>Description: <%= review.description %></p>
-    <p>Rating: <%= review.rating %></p>
-    <%= link_to  "Delete Review", review_path(review), method: :delete %>
+<%= render '/users/navigation/show_header' %>
+<section class="book_show_container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><%= @user.name%></h1>
+    </div>
   </div>
-<% end %>
+  <section class="books_container">
+    <% @reviews.each_with_index do |review, index| %>
+        <div id="review_<%= review.id %>" class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <p id="review_title_<%= index %>"><%= review.title %></p>
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p><%= review.description %></p>
+            </li>
+            <li class="list-group-item">
+              <p>Rating: <%= review.rating %></p>
+            </li>
+            <li class="list-group-item">
+              <%= link_to  "Delete Review", review_path(review), method: :delete %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+  </section>
+</section>
