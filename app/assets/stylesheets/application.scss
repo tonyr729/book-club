@@ -1,1 +1,18 @@
 @import "bootstrap";
+@import "root.scss";
+@import "books.scss";
+@import "book_show.scss";
+
+body {
+  text-align: center;
+  background-color: #222;
+  height: 100vh;
+  overflow: hidden;
+}
+
+a {
+  &:hover {
+    color: #00ffff;
+    text-decoration: none;
+  }
+}

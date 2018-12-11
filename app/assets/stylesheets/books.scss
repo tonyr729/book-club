@@ -1,0 +1,58 @@
+.books_background_img {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+.books_background_img::after {
+  content: "";
+  background: url('library_1.jpeg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.fixed_stats {
+  position: fixed;
+  width: 80vw;
+  left: 10%;
+  overflow: hidden;
+}
+
+.books_container-title {
+  color: #fff;
+}
+
+.book-stats { 
+  display: flex;
+  justify-content: space-around;
+  margin: 15px;
+  padding: 12px;
+}
+
+.stats {
+  background: #efefef;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 20%;
+  padding-top: 10px;
+}
+
+.book_display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  text-align: initial;
+  margin: 0 5px 50px;
+  width: 20rem;
+
+}

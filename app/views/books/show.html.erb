@@ -1,36 +1,66 @@
-<h2><%= @book.title %></h2>
-  <p>Pages: <%= @book.pages %></p>
-  <p>Publication: <%= @book.publication_year %></p>
-  <% @book.authors.each do |author| %>
-    <p>Author: <%= author.name %></p>
-  <% end %>
-  <article id="top-three">
-    <p>Top Three Ratings: </p>
-     <% @top_three.each do |review| %>
-      <%= review.title %>
-      <%= review.rating %>
-      <%= review.user.name %>
+<section class="book_show_container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><%= @book.title %></h1>
+      <p>Pages: <%= @book.pages %></p>
+      <p>Publication: <%= @book.publication_year %></p>
+      <p>
+       Authors:
+        <% @book.authors.each do |author| %>
+          </br><%= link_to  author.name, author_path(author) %>
+        <% end %>
+      </p>
+      <p> Average Rating: </p>
+      <p><%= @book.average_rating.round(2) %></p>
+    </div>
+  </div>
+  <section class="book-stats">
+    <article id="top-three" class="stats w-40">
+      <h2>Top Three Ratings: </h2>
+      <% @top_three.each do |review| %>
+        <p><%= review.title %></p>
+        <p>Rating: <%= review.rating %>
+        - <%= review.user.name %></p>
+      <% end %>
+    </article>
+    <article id="bottom-three" class="stats w-40">
+      <h2> Bottom Three Ratings: </h2>
+      <% @bottom_three.each do |review| %>
+        <p><%= review.title %></p>
+        <p>Rating: <%= review.rating %>
+        - <%= review.user.name %></p>
+      <% end %>
+    </article>
+  </section>
+  <section class="review_container">
+    <% @book.reviews.each do |review| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Review: <%= review.title %>
+          </h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+          <p><%= review.description %></p>
+          </li>
+          <li class="list-group-item">
+            <p>Rating: <%= review.rating %></p>
+          </li>
+          <li class="list-group-item">
+            <p>by: <%=link_to review.user.name, user_path(review.user) %></p>
+          </li>
+        </ul>
+      </div>
     <% end %>
-  </article>
-  <article id="bottom-three">
-    <p> Bottom Three Ratings: </p>
-    <% @bottom_three.each do |review| %>
-      <%= review.title %>
-      <%= review.rating %>
-      <%= review.user.name %>
-    <% end %>
-  </article>
-  <article id="average-rating">
-    <p> Average Rating: </p>
-    <%= @book.average_rating %>
-  </article>
+  </section>
+</section>
 
-  <% @book.reviews.each do |review| %>
-    <p>Review: <%= review.title %></p>
-    <p><%= review.description %></p>
-    <p>Rating: <%= review.rating %></p>
-    <p>by: <%=link_to review.user.name, user_path(review.user) %></p>
-  <% end %>
-  <%= link_to "Delete Book", book_path(@book), method: :delete %>
-  <%= link_to "Create a New Review", new_book_review_path(@book) %>
-!
+
+
+
+
+
+<%= link_to "Delete Book", book_path(@book), method: :delete %>
+<%= link_to "Create a New Review", new_book_review_path(@book) %>
+
