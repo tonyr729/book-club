@@ -1,2 +1,17 @@
 @import "bootstrap";
 @import "root.scss";
+@import "books.scss";
+
+body {
+  text-align: center;
+  color: #fafafa;
+  background-color: #222;
+}
+
+a {
+  color: #fafafa;
+  &:hover {
+    color: #00ffff;
+    text-decoration: none;
+  }
+}

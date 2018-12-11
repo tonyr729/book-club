@@ -1,41 +1,81 @@
 <%= render '/books/navigation/header' %>
-<section>
-  <h1>All Books</h1>
-
+<div class="books_background_img">
   <section>
-    <article id="top-three">
-    <h2>Top Books:</h2>
-      <% @top_three.each do |book| %>
-        <p><%= book.title %></p>
-      <% end %>
+    <article class="fixed_stats">
+      <h1>All Books</h1>
+      <section class="book-stats">
+        <article id="top-three" class="stats">
+          <h2>Top Books:</h2>
+          <% @top_three.each do |book| %>
+            <p><%= book.title %></p>
+          <% end %>
+        </article>
+        <article id="bottom-three" class="stats">
+          <h2>Bottom Books:</h2>
+          <% @bottom_three.each do |book| %>
+            <p><%= book.title %></p>
+          <% end %>
+        </article>
+        <article id="top-users" class="stats">
+          <h2>Top Users:</h2>
+          <% @top_users.each do |user| %>
+            <p><%= user.name %></p>
+          <% end %>
+        </article>
+      </section>
     </article>
-    <article id="bottom-three">
-    <h2>Bottom Books:</h2>
-      <% @bottom_three.each do |book| %>
-        <p><%= book.title %></p>
-      <% end %>
-    </article>
-    <article id="top-users">
-    <h2>Top Users:</h2>
-      <% @top_users.each do |user| %>
-        <p><%= user.name %></p>
-      <% end %>
-    </article>
-  </section>
-  <% @books.each_with_index do |book, index| %>
-  <article class="book_container-<%= index %>">
-    <h2><%= link_to  book.title, book_path(book) %></h2>
-    <p>
-      Author(s):
-      <% book.authors.each do |author| %>
-        <%= link_to  author.name, author_path(author) %>
-      <% end %>
-    </p>
-    <p>Pages: <%= book.pages %></p>
-    <p>Publication: <%= book.publication_year %></p>
-    <p>Average Rating: <%= book.average_rating %></p>
-  </article>
-  <% end %>
+    <section class="book_display">
 
-  <%= link_to "Create a New Book", new_book_path %>
-</section>
+
+
+      <% @books.each_with_index do |book, index| %>
+      <article class="book_container-<%= index %>">
+        <h2><%= link_to  book.title, book_path(book) %></h2>
+        <p>
+          Author(s):
+          <% book.authors.each do |author| %>
+            <%= link_to  author.name, author_path(author) %>
+          <% end %>
+        </p>
+        <p>Pages: <%= book.pages %></p>
+        <p>Publication: <%= book.publication_year %></p>
+        <p>Average Rating: <%= book.average_rating %></p>
+      </article>
+
+
+      <!-- <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="#" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= link_to  book.title, book_path(book) %>
+          </h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Authors:
+            <% book.authors.each do |author| %>
+            <%= link_to  author.name, author_path(author) %>
+            <% end %>
+          </li>
+          <li class="list-group-item">Pages:
+            <%= book.pages %>
+          </li>
+          <li class="list-group-item">Publication:
+            <%= book.publication_year %>
+          </li>
+          <li class="list-group-item">Publication: Average Rating:
+            <%= book.average_rating.round(2)%>
+          </li>
+        </ul>
+      </div> -->
+
+
+
+
+
+
+
+      <% end %>
+    </section>
+  </section>
+</div>

@@ -1,0 +1,37 @@
+.books_background_img {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+.books_background_img::after {
+  content: "";
+  background: url('shelf.jpeg');
+  background-size: 33.4vw;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.fixed_stats {
+  position: fixed;
+  width: 80vw;
+  left: 10%;
+}
+
+.book_display {
+  // display: flex;
+  // flex-flow: wrap row;
+  // justify-content: space-around;
+}
+
+// .card {
+//   text-align: initial;
+//   margin-top: 5rem;
+// }
