@@ -1,80 +1,54 @@
 <%= render '/books/navigation/header' %>
-<div class="books_background_img">
-  <section>
-    <article class="fixed_stats">
-      <h1>All Books</h1>
-      <section class="book-stats">
-        <article id="top-three" class="stats">
-          <h2>Top Books:</h2>
-          <% @top_three.each do |book| %>
-            <p><%= book.title %></p>
-          <% end %>
-        </article>
-        <article id="bottom-three" class="stats">
-          <h2>Bottom Books:</h2>
-          <% @bottom_three.each do |book| %>
-            <p><%= book.title %></p>
-          <% end %>
-        </article>
-        <article id="top-users" class="stats">
-          <h2>Top Users:</h2>
-          <% @top_users.each do |user| %>
-            <p><%= user.name %></p>
-          <% end %>
-        </article>
-      </section>
-    </article>
+<section class="book-stats">
+  <article id="top-three" class="stats">
+    <h2>Top Books:</h2>
+    <% @top_three.each do |book| %>
+    <p><%= book.title %></p>
+    <% end %>
+  </article>
+  <article id="bottom-three" class="stats">
+    <h2>Bottom Books:</h2>
+    <% @bottom_three.each do |book| %>
+    <p><%= book.title %></p>
+    <% end %>
+  </article>
+  <article id="top-users" class="stats">
+    <h2>Top Users:</h2>
+    <% @top_users.each do |user| %>
+    <p><%= user.name %></p>
+    <% end %>
+  </article>
+</section>
+<h1 class="books_container-title">All Books</h1>
+<section>
+  <div class="books_background_img">
     <section class="book_display">
-
-
-
       <% @books.each_with_index do |book, index| %>
-      <article class="book_container-<%= index %>">
-        <h2><%= link_to  book.title, book_path(book) %></h2>
-        <p>
-          Author(s):
-          <% book.authors.each do |author| %>
-            <%= link_to  author.name, author_path(author) %>
-          <% end %>
-        </p>
-        <p>Pages: <%= book.pages %></p>
-        <p>Publication: <%= book.publication_year %></p>
-        <p>Average Rating: <%= book.average_rating %></p>
-      </article>
-
-
-      <!-- <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="#" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= link_to  book.title, book_path(book) %>
-          </h5>
+        <div class="card">
+          <img class="card-img-top" src="https://s3.amazonaws.com/laugh-track-comedians/no_book.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= link_to  book.title, book_path(book) %>
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Authors:
+              <% book.authors.each do |author| %>
+                </br><%= link_to  author.name, author_path(author) %>
+              <% end %>
+            </li>
+            <li class="list-group-item">Pages:
+              <%= book.pages %>
+            </li>
+            <li class="list-group-item">Publication:
+              <%= book.publication_year %>
+            </li>
+            <li class="list-group-item">Average Rating:
+              <%= book.average_rating.round(2)%>
+            </li>
+          </ul>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Authors:
-            <% book.authors.each do |author| %>
-            <%= link_to  author.name, author_path(author) %>
-            <% end %>
-          </li>
-          <li class="list-group-item">Pages:
-            <%= book.pages %>
-          </li>
-          <li class="list-group-item">Publication:
-            <%= book.publication_year %>
-          </li>
-          <li class="list-group-item">Publication: Average Rating:
-            <%= book.average_rating.round(2)%>
-          </li>
-        </ul>
-      </div> -->
-
-
-
-
-
-
-
       <% end %>
     </section>
   </section>

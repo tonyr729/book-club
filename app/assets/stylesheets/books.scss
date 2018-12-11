@@ -8,8 +8,7 @@
 
 .books_background_img::after {
   content: "";
-  background: url('shelf.jpeg');
-  background-size: 33.4vw;
+  background: url('library_1.jpeg');
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -23,15 +22,39 @@
   position: fixed;
   width: 80vw;
   left: 10%;
+  overflow: hidden;
+}
+
+.books_container-title {
+  color: #fff;
+}
+
+.book-stats { 
+  display: flex;
+  justify-content: space-around;
+  margin: 15px;
+  padding: 12px;
+}
+
+.stats {
+  background: #efefef;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 20%;
+  padding-top: 10px;
 }
 
 .book_display {
-  // display: flex;
-  // flex-flow: wrap row;
-  // justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-// .card {
-//   text-align: initial;
-//   margin-top: 5rem;
-// }
+.card {
+  text-align: initial;
+  margin-top: 0;
+  margin-bottom: 5rem;
+
+  width: 20rem;
+
+}

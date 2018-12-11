@@ -4,12 +4,12 @@
 
 body {
   text-align: center;
-  color: #fafafa;
   background-color: #222;
+  height: 100vh;
+  overflow: hidden;
 }
 
 a {
-  color: #fafafa;
   &:hover {
     color: #00ffff;
     text-decoration: none;
