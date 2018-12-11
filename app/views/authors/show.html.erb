@@ -1,25 +1,48 @@
-<h1><%= @author.name%></h1>
-<% @author.books.each_with_index do |book, index| %>
-  <article id="book-<%= index %>">
-    <p>Title: <%= book.title %></p>
-    <p>Pages: <%= book.pages %></p>
-    <p>Publication: <%= book.publication_year %></p>
-    <% if book.co_authors(@author).any? %>
-      <p>
-        Co-Authors:
-        <% book.co_authors(@author).each do |author| %>
-          <%= author.name %></p>
-        <% end %>
-      </p>
-    <% end %>
-    <% if book.reviews.any? %>
-      <div>
-        <h2>Top Review: </h2>
-        <p>Title: <%= book.rating_sort("DESC").first.title %></p>
-        <p>Rating: <%= book.rating_sort("DESC").first.rating %></p>
-        <p>User: <%= book.rating_sort("DESC").first.user.name %></p>
-      </div>
-    <% end %>
-  </article>
-<% end %>
-<%= link_to "Delete Author", author_path(@author), method: :delete %>
+<%= render '/authors/navigation/show_header' %>
+<section class="book_show_container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><%= @author.name%></h1>
+    </div>
+  </div>
+  <section class="books_container">
+    <% @author.books.each_with_index do |book, index| %>
+        <div class="card">
+          <img class="card-img-top" src="https://s3.amazonaws.com/laugh-track-comedians/no_book.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= link_to  book.title, book_path(book) %>
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p>
+                Co-Authors:
+                <% if book.co_authors(@author).any? %>
+                  <% book.co_authors(@author).each do |author| %>
+                    <%= author.name %></p>
+                  <% end %>
+                <% end %>
+              </p>
+            </li>
+            <li class="list-group-item">Pages:
+              <%= book.pages %>
+            </li>
+            <li class="list-group-item">Publication:
+              <%= book.publication_year %>
+            </li>
+            <li class="list-group-item">
+              <% if book.reviews.any? %>
+                <div>
+                  <p>Top Review: </p>
+                  <p>Title: <%= book.rating_sort("DESC").first.title %></p>
+                  <p>Rating: <%= book.rating_sort("DESC").first.rating %></p>
+                  <p>User: <%= book.rating_sort("DESC").first.user.name %></p>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+  </section>
+</section>
