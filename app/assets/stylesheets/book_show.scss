@@ -1,0 +1,28 @@
+.book_show_container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  overflow: scroll;
+}
+
+.book_show_container::after {
+  content: "";
+  background: url('library_1.jpeg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.review_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.w-40 {
+  width: 40% !important;
+}
