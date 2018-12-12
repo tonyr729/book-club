@@ -3,7 +3,7 @@
   <article id="top-three" class="stats">
     <h2>Top Books:</h2>
     <% @top_three.each do |book| %>
-    <p><%= book.title %></p>
+      <p><%= book.title %></p>
     <% end %>
   </article>
   <article id="bottom-three" class="stats">
@@ -24,7 +24,7 @@
   <div class="books_background_img">
     <section class="book_display">
       <% @books.each_with_index do |book, index| %>
-        <div class="card">
+        <article class="card book_container-<%= index %>">
           <img class="card-img-top" src="https://s3.amazonaws.com/laugh-track-comedians/no_book.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">
@@ -45,10 +45,10 @@
               <%= book.publication_year %>
             </li>
             <li class="list-group-item">Average Rating:
-              <%= book.average_rating.round(2)%>
+              <%= book.average_rating.round(2) if book.reviews.any? %>
             </li>
           </ul>
-        </div>
+        </article>
       <% end %>
     </section>
   </section>

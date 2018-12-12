@@ -15,7 +15,7 @@ describe 'As a visitor' do
       
       expect(page).to have_content(author_1.name)
       author_1.books.each do |book|
-        expect(page).to have_content("Title: #{book.title}")
+        expect(page).to have_content(book.title)
         expect(page).to have_content("Pages: #{book.pages}")
         expect(page).to have_content("Publication: #{book.publication_year}")
         book.co_authors(author_1).each do |author|

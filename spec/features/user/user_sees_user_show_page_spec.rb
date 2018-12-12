@@ -18,11 +18,11 @@ describe 'As a Visitor' do
       expect(current_path).to eq(user_path(user_1))
 
       expect(page).to have_content(user_1.name)
-      expect(page).to have_content("Title: #{review_1.title}")
-      expect(page).to have_content("Description: #{review_1.description}")
+      expect(page).to have_content(review_1.title)
+      expect(page).to have_content(review_1.description)
       expect(page).to have_content("Rating: #{review_1.rating}")
-      expect(page).to have_content("Title: #{review_2.title}")
-      expect(page).to have_content("Description: #{review_2.description}")
+      expect(page).to have_content(review_2.title)
+      expect(page).to have_content(review_2.description)
       expect(page).to have_content("Rating: #{review_2.rating}")
     end
 

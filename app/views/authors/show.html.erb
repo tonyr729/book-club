@@ -7,7 +7,7 @@
   </div>
   <section class="books_container">
     <% @author.books.each_with_index do |book, index| %>
-        <div class="card">
+        <div id="book-<%= index %>" class="card">
           <img class="card-img-top" src="https://s3.amazonaws.com/laugh-track-comedians/no_book.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">
