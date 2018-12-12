@@ -12,7 +12,8 @@
         <% end %>
       </p>
       <p> Average Rating: </p>
-      <p><%= @book.average_rating.round(2) %></p>
+      <p>
+      <%= @book.average_rating.round(2) if @book.reviews.any? %></p>
     </div>
   </div>
   <section class="book-stats">

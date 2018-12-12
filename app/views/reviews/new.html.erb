@@ -1,21 +1,27 @@
-<%= form_for [@book, @review] do |f| %>
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :rating %>
-    <%= f.select :rating, [['1: Horrible', 1], ['2: Pretty bad', 2], ['3: Average', 3], ['4: Good', 4], ['5: Great', 5]] %>
-  </p>
-  <p>
-    <%= f.label :user %>
-    <%= f.text_area :user %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render '/reviews/navigation/header' %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Create Review</h1>
+  </div>
+</div>
+<section class="books_background_img">
+  <div class="form_container">
+      <%= form_for [@book, @review] do |f| %>
+        <div class="form-group">
+          <%= f.text_field :user, placeholder: "User Name", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :title, placeholder: "Title", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :description, placeholder: "Description", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.select :rating, [['1: Horrible', 1], ['2: Pretty bad', 2], ['3: Average', 3], ['4: Good', 4], ['5: Great', 5]] %>
+        </div>
+        <div class="form-group">
+          <%= f.submit%>
+        </div>
+      <% end %>
+  </div>
+</section>
