@@ -6,6 +6,7 @@ require 'faker'
 books = YAML.load_file('lib/assets/books.yaml')
 
 Book.destroy_all
+Author.destroy_all
 
 books.each do |book|
   new_book = Book.create!({
@@ -25,6 +26,9 @@ end
 p "Created #{Book.count} books"
 p "Created #{Author.count} authors"
 
+
+User.destroy_all
+Review.destroy_all
 x = 0
 while x <= 200
   
