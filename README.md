@@ -9,7 +9,7 @@ Mod 2 Project to build an MVC framework in Rails with a PostgreSQL database
 
 You can view Book Club at https://shielded-scrubland-71367.herokuapp.com/books
 
-Should you want to run Leaderboard locally, follow these steps:
+Should you want to run Book Club locally, follow these steps:
 
 1. Clone down the repo. `git clone https://github.com/tonyr729/book-club`
 2. `cd book-club`
