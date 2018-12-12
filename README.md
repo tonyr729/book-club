@@ -1,24 +1,35 @@
-# README
+![Book Club screen](https://user-images.githubusercontent.com/34175382/49840665-9ce22c00-fd71-11e8-8a3a-05805fa81cfd.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Book Club
 
-* Ruby version
+Mod 2 Project to build an MVC framework in Rails with a PostgreSQL database
 
-* System dependencies
+## Getting Started
 
-* Configuration
+You can view Book Club at https://shielded-scrubland-71367.herokuapp.com/books
 
-* Database creation
+Should you want to run Leaderboard locally, follow these steps:
 
-* Database initialization
+1. Clone down the repo. `git clone https://github.com/tonyr729/book-club`
+2. `cd book-club`
+3. `bundle install`
+4. `rake db:{create,migrate,seed}`
 
-* How to run the test suite
+## Running the tests
 
-* Services (job queues, cache servers, search engines, etc.)
+To run the tests, simply run `rspec`
 
-* Deployment instructions
+## Built With
 
-* ...
+* Rails
+* PostgreSQL
+
+## Authors
+
+* **Tony Robertson** - [GitHub](https://github.com/tonyr729)
+* **Ali Benetka** - [GitHub](https://github.com/abenetka)
+
+## DTR for this project
+
+* [DTR on Notion](https://www.notion.so/DTR-c2d270f8a79f4c798b9bd13de81ff71b)
