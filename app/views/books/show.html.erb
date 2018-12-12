@@ -12,7 +12,7 @@
         <% end %>
       </p>
       <p> Average Rating: </p>
-      <p>
+      <p id="average-rating">
       <%= @book.average_rating.round(2) if @book.reviews.any? %></p>
     </div>
   </div>
